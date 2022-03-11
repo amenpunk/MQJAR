@@ -2,3 +2,11 @@ apply plugin : 'java'
 apply plugin : 'application'
 
 mainClassName = 'Start'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.25'
+}
