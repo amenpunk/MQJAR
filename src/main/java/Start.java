@@ -1,9 +1,10 @@
+import ibm.mq.JMSGET;
 
 public class Start{
 
     public static void main (String[] args ){
-        System.out.println("Start Class");
-        Reverse.Run();
+        JMSGET mqclient = new JMSGET();
+        mqclient.Connect();
     }
 
 }
