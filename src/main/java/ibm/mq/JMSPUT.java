@@ -1,5 +1,6 @@
 package ibm.mq;
 
+
 import javax.jms.Destination;
 import javax.jms.JMSConsumer;
 import javax.jms.JMSContext;
@@ -11,9 +12,10 @@ import com.ibm.msg.client.jms.JmsConnectionFactory;
 import com.ibm.msg.client.jms.JmsFactoryFactory;
 import com.ibm.msg.client.wmq.WMQConstants;
 
-public class JMSGET {
+public class JMSPUT {
 
     private static int status = 1;
+
     private static final String HOST = "localhost"; // Host name or IP address
     private static final int PORT = 1414; // Listener port for your queue manager
     private static final String CHANNEL = "DEV.APP.SVRCONN"; // Channel name
@@ -22,12 +24,14 @@ public class JMSGET {
     private static final String APP_PASSWORD = "passw0rd"; // Password that the application uses to connect to MQ
     private static final String QUEUE_NAME = "MINGNULL"; // Queue that the application uses to put and get messages to and from
 
-    public static void Connect() {
+    public void SetMessage(String message_body) {
 
         JMSContext context = null;
         Destination destination = null;
         JMSProducer producer = null;
         JMSConsumer consumer = null;
+
+
 
         try {
 
@@ -44,15 +48,14 @@ public class JMSGET {
             cf.setStringProperty(WMQConstants.USERID, APP_USER);
             cf.setStringProperty(WMQConstants.PASSWORD, APP_PASSWORD);
 
-            // Create JMS objects
             context = cf.createContext();
             destination = context.createQueue("queue:///" + QUEUE_NAME);
 
-            consumer = context.createConsumer(destination); // autoclosable
-            String receivedMessage = consumer.receiveBody(String.class, 15000); // in ms or 15 seconds
-            // Map receivedMessage = consume.
+            TextMessage message = context.createTextMessage(message_body);
 
-            System.out.println("\nReceived message:\n" + receivedMessage);
+            producer = context.createProducer();
+            producer.send(destination, message);
+            System.out.println("Sent message:\n" + message);
 
             context.close();
 
