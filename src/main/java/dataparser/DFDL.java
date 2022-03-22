@@ -26,13 +26,14 @@ public class DFDL{
         String operation_list = "";
 
         for(DFDL myop : myOperations ){
-            operation_list+=myop.toString()+"|";
+            // System.out.println("LENGTH : " + myop.toString().length()  );
+            // System.out.println(myop.toString());
+            operation_list+=myop.toString()+"\n";
         }
 
-        int len = operation_list.length();
-        operation_list = operation_list.substring(0 , len - 1 );
-
-        System.out.println(operation_list);
+        // int len = operation_list.length();
+        // operation_list = operation_list.substring(0 , len - 1 );
+        // System.out.println(operation_list);
         return operation_list;
     }
 
@@ -52,9 +53,10 @@ class Employes{
         String[] deparments = {"INNOVA_TEC", "FINA_SGURS", "SEGCSISL00", "390BUSSINS"};
         String[] operation = {"DELE", "UPDE", "CREA", "FREE"};
 
-        for(int x = 0 ; x <5; x++){
+        for(int x = 0 ; x <2; x++){
             String uniqueID = UUID.randomUUID().toString();
-            DFDL new_operation = new DFDL( deparments[Employes.getRand()], uniqueID, operation[Employes.getRand()] );
+            String sp = "     ";
+            DFDL new_operation = new DFDL( deparments[Employes.getRand()] + sp , uniqueID + sp, operation[Employes.getRand()] );
             employes.add(new_operation);
         }
 
