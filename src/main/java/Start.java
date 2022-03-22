@@ -1,7 +1,7 @@
 import ibm.mq.*;
 import java.io.FileNotFoundException;
 
-import csv.Parse;
+import dataparser.CSV;
 
 public class Start{
 
@@ -10,8 +10,10 @@ public class Start{
         // mqclient.Connect();
         // JMSPUT mqclient = new JMSPUT();
         // mqclient.SetMessage("Hola mundo yes yes");
-        Parse csv_data = new Parse();
+        CSV csv_data = new CSV();
         String csv = csv_data.getData();
+
+        System.out.println(csv);
 
         JMSPUT mqclient = new JMSPUT();
         mqclient.SetMessage(csv);

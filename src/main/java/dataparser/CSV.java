@@ -1,16 +1,16 @@
-package csv;
+package dataparser;
 
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class Parse{
+public class CSV{
 
     public String getData() throws FileNotFoundException {
         try{
 
             String temp_data = "";
-            Scanner csv = new Scanner(new File("/home/ming/WORKSPACE/MQJAR/src/files/data.csv"));
+            Scanner csv = new Scanner(new File("/home/ming/WORKSPACE/MQJAR/src/files/shops.csv"));
             csv.useDelimiter(",");
 
             while (csv.hasNext()) {
