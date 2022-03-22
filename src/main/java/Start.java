@@ -2,6 +2,7 @@ import ibm.mq.*;
 import java.io.FileNotFoundException;
 
 import dataparser.CSV;
+import dataparser.DFDL;
 
 public class Start{
 
@@ -10,15 +11,16 @@ public class Start{
         // mqclient.Connect();
         // JMSPUT mqclient = new JMSPUT();
         // mqclient.SetMessage("Hola mundo yes yes");
-        CSV csv_data = new CSV();
-        String csv = csv_data.getData();
+        // CSV csv_data = new CSV();
+        // String csv = csv_data.getData();
+        //
+        // System.out.println(csv);
+        //
+        // JMSPUT mqclient = new JMSPUT();
+        // mqclient.SetMessage(csv);
+        DFDL.Create();
 
-        System.out.println(csv);
-
-        JMSPUT mqclient = new JMSPUT();
-        mqclient.SetMessage(csv);
-
-
+        
     }
 
 }
