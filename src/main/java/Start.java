@@ -20,10 +20,11 @@ public class Start{
         //
         // JMSPUT mqclient = new JMSPUT();
         // mqclient.SetMessage(csv);
+
         String dfdl_message = DFDL.Create();
-        // FileWriter myWriter = new FileWriter("filename.txt");
-        // myWriter.write(dfdl_message);
-        // myWriter.close();
+        FileWriter myWriter = new FileWriter("filename.txt");
+        myWriter.write(dfdl_message);
+        myWriter.close();
 
 
 

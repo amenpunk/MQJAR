@@ -55,7 +55,7 @@ public class JMSPUT {
 
             producer = context.createProducer();
             producer.send(destination, message);
-            // System.out.println("Sent message:\n" + message);
+            System.out.println("Sent message:\n" + message);
 
             context.close();
 
